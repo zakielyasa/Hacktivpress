@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-var articlesSchema = new Schema({
+var articleSchema = new Schema({
     title: String,
     content: String,
     category: String,
@@ -11,6 +11,6 @@ var articlesSchema = new Schema({
     }
 })
 
-var Articles = mongoose.model('articles', articlesSchema)
+var Article = mongoose.model('article', articlesSchema)
 
-module.exports = Articles
+module.exports = Article
