@@ -18,10 +18,10 @@
 | Route | HTTP | Description |
 | ------ | ----- | --------- |
 |/api/article/create| POST | create article |
-| /api/article | GET | get all blogs |
+| /api/article | GET | get all article |
 | /api/article/category | GET | get article by category |
-| /api/article/delete | DELETE | delete blog user authorization only |
-| /api/article/:id | PUT | edit blog user authorization only |
-| /api/article/:id | GET | get detail blogs |
+| /api/article/delete/:id | DELETE | delete article user authorization only |
+| /api/article/:id | PUT | edit article user authorization only |
+| /api/article/:id | GET | get detail article |
 
 `http://localhost:3000/api` .
