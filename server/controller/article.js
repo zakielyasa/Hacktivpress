@@ -15,7 +15,7 @@ let createArticle = (req, res) => {
         })
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
 }
 
@@ -28,24 +28,24 @@ let getAllArticle = (req, res) => {
         })
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
 }
 
 let getMyArticle = (req, res) => {
-    Article.find({userId: req._id})
+    Article.find({author: req._id})
     .then(data => {
         res.send(data)
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
 }
 
 let deleteArticle = (req, res) => {
     Article.findByIdAndRemove({
         _id:req.params.id,
-        userId: req._id
+        author: req._id
     })
     .then(data => {
         res.send({
@@ -54,7 +54,7 @@ let deleteArticle = (req, res) => {
         })
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
 }
 
@@ -67,17 +67,17 @@ let findAnArticle = (req, res) => {
         })
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
 }
 
 let updateArticle = (req, res) => {
     let objUpdateArticle = {
         title: req.body.title,
-        text : req.body.text,
-        date : `Edited: ${new Date(Date.now()).toLocaleString()}`
+        content : req.body.text,
+        category: req.body.category
     }
-    Article.findByIdAndUpdate({_id:req.params.id, userId: req._id}, objUpdateArticle)
+    Article.findByIdAndUpdate({_id:req.params.id, author: req._id}, objUpdateArticle)
     .then(data => {
         res.send({
             message: 'Article updated',
@@ -86,8 +86,12 @@ let updateArticle = (req, res) => {
         console.log(req.body)
     })
     .catch(err => {
-        res.status(404).send(err)
+        res.send(err)
     })
+}
+
+let findArticleCategory =(req, res) => {
+    Article.findOne({category: req.category})
 }
 
 
