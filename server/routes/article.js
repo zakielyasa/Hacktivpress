@@ -4,9 +4,10 @@ var Controller = require('../controller/article')
 var Verify = require('../middleware/verify')
 
 router.get('/', Controller.getAllArticle)
-router.post('/create',  Controller.createArticle)
-router.delete('/delete/:id',  Controller.deleteArticle)
-router.get('/:id',  Controller.findAnArticle)
-router.put('/edit/:id',  Controller.updateArticle)
+router.post('/create', Verify.isLogin, Controller.createArticle)
+router.delete('/delete/:id', Verify.isLogin, Controller.deleteArticle)
+router.get('/:id', Verify.isLogin, Controller.findAnArticle)
+router.put('/edit/:id', Verify.isLogin, Controller.updateArticle)
+router.get('/category/', Verify.isLogin, Controller.findArticleCategory)
 
 module.exports = router;

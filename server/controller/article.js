@@ -90,11 +90,15 @@ let updateArticle = (req, res) => {
     })
 }
 
-let findArticleCategory =(req, res) => {
-    Article.findOne({category: req.category})
+let findArticleCategory = (req, res) => {
+    Article.findOne()
+    .then(data => {
+        res.send(data)
+    })
+    .catch(err => {
+        res.send(err)
+    })
 }
-
-
 
 module.exports = {
     createArticle,
@@ -102,5 +106,6 @@ module.exports = {
     getMyArticle,
     deleteArticle,
     findAnArticle,
-    updateArticle
+    updateArticle,
+    findArticleCategory
 }
