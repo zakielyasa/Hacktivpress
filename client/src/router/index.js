@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import MainPage from '@/components/MainPage'
+import CreateArticle from '@/components/CreateArticle'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/mainpage',
       name: 'mainpage',
       component: MainPage
+    },
+    {
+      path: '/create_article',
+      name: 'create article',
+      component: CreateArticle
     }
   ]
 })
